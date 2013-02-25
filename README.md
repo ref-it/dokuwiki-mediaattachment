@@ -1,0 +1,4 @@
+dokuwikimediaattachment
+=======================
+
+Easier attachment integration
