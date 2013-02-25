@@ -1,0 +1,28 @@
+li span.mediaattachment {
+ cursor: pointer;
+}
+
+li span.mediaattachment-delete {
+ cursor: crosshair;
+}
+
+li span.mediaattachment-unused {
+ background-color: yellow;
+}
+
+.mediaattachmentupload {
+ display: table;
+}
+
+.mediaattachmentupload li {
+ display: table-row;
+}
+
+.mediaattachmentupload li span, .mediaattachmentupload li input {
+ display: table-cell;
+ padding: 2px;
+}
+
+.mediaattachmentupload li.mediaattachmentuploadhead {
+ font-weight: bold;
+}

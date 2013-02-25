@@ -1,0 +1,7 @@
+base   mediaattachment
+author Michael Braun
+email  michael-dev@fami-braun.de
+date   2013-02-25
+name   mediaattachment plugin
+desc   Esier integration of attachments
+url    https://github.com/michael-dev/dokuwikimediaattachment
