@@ -17,3 +17,4 @@ $lang['js']['uploaddlgoverwrite'] = 'Existierende Datei ersetzen?';
 $lang['js']['uploadfailed'] = 'Upload fehlgeschlagen.';
 $lang['js']['deletefailed'] = 'Löschen fehlgeschlagen.';
 $lang['js']['deleteconfirm'] = 'Datei %name% (%id%) entfernen?';
+$lang['js']['namespace'] = 'Bereich (intern)?';

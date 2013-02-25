@@ -17,3 +17,4 @@ $lang['js']['uploaddlgoverwrite'] = 'Replace existing file?';
 $lang['js']['uploadfailed'] = 'Upload failed.';
 $lang['js']['deletefailed'] = 'Delete failed.';
 $lang['js']['deleteconfirm'] = 'Remove file %name% (%id%)?';
+$lang['js']['namespace'] = 'Namespace (private)?';

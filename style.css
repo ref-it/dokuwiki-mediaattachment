@@ -18,9 +18,10 @@ li span.mediaattachment-unused {
  display: table-row;
 }
 
-.mediaattachmentupload li span, .mediaattachmentupload li input {
+.mediaattachmentupload li span {
  display: table-cell;
  padding: 2px;
+ vertical-align: top;
 }
 
 .mediaattachmentupload li.mediaattachmentuploadhead {

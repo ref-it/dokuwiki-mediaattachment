@@ -67,7 +67,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
           $ret = array_merge($ret, $res);
         }
 
-        return $ret;
+        return Array("files" => $ret, "ns" => $nslist);
     }
 
     private function handle_ajax_mediaattachment_deletefile() {
