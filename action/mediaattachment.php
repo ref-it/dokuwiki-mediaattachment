@@ -17,7 +17,10 @@ require_once DOKU_PLUGIN.'action.php';
 
 class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plugin {
 
+    private $privatens = null;
+
     public function register(Doku_Event_Handler &$controller) {
+        $this->privatens = cleanID(trim($this->getConf('privatens')));
         $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this, 'handle_tpl_metaheader_output');
         $controller->register_hook('AJAX_CALL_UNKNOWN', 'BEFORE', $this, 'handle_ajax');
     }
@@ -50,8 +53,8 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
         if(empty($NS)) return Array();
 
         $nslist = Array($NS);
-        if (stripos($NS, ":intern:") !== false) {
-          $nslist[] = str_ireplace(":intern:", ":", $NS);
+        if (stripos($NS, ":{$this->privatens}:") !== false) {
+          $nslist[] = str_ireplace(":{$this->privatens}:", ":", $NS);
         }
         $ret = Array();
         foreach ($nslist as $NS) {
