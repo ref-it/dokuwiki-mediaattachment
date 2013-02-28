@@ -63,7 +63,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
           if(auth_quickaclcheck($dir) < AUTH_READ) continue;
           $res = array(); // search result
           require_once(DOKU_INC.'inc/search.php');
-          search($res,$conf['mediadir'],'search_media',array(),$dir);
+          search($res,$conf['mediadir'],'search_media',array("depth" => 1),$dir);
           foreach ($res as &$r) {
             $r["link"] = ml($r["id"], "", true);
           }
