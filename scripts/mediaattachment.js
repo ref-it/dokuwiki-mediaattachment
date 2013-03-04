@@ -65,14 +65,15 @@ ma.repaintList = function() {
      var li = jQuery('<li/>');
      jQuery('<a/>').attr('href',f.link).attr('target','_blank').text(ma.lang.download).appendTo(li);
      li.append(" ");
-     if (val.indexOf('{{:' + f.id + '|') == -1) {
+     var notInUse = ((val.indexOf('{{:' + f.id + '|') == -1) && (val.indexOf('{{:' + f.id + '?') == -1));
+     if (notInUse) {
        jQuery('<span/>').text(ma.lang.delete).addClass("mediaattachment-delete").appendTo(li).click({'id' : f.id, 'name' : f.file}, ma.onDeleteFile);
        li.append(" ");
      }
      var desc = jQuery('<span/>').appendTo(li);
      desc.text(f.id);
      desc.addClass('mediaattachment');
-     if (val.indexOf('{{:' + f.id + '|') == -1) {
+     if (notInUse) {
        desc.addClass('mediaattachment-unused');
        desc.attr('title', ma.lang.unused);
      }
