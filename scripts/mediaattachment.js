@@ -7,7 +7,7 @@ ma.lang = {};
 ma.ns = [];
 
 ma.onClickFile = function(event) {
-  insertAtCarret('wiki__text', '{{:'+event.data.id+'|}}');  
+  insertAtCarret('wiki__text', '{{:'+event.data.id+'|}}');
 }
 
 ma.onDeleteFile = function(event) {
@@ -118,6 +118,7 @@ ma.onConfirmUpload = function(event) {
     data.append( 'call' , 'mediaupload' );
     var name = jQuery('input#mediaattachment'+i).val();
     if (name == '') { name = f.name; }
+    name = name.replace(/:/g,'_');
     data.append( 'mediaid' , name );
     var ns = jQuery('select#mediaattachmentns'+i).val();
     if (ns == '') { ns = ma.conf.id; }
