@@ -23,6 +23,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
         $this->privatens = cleanID(trim($this->getConf('privatens')));
         $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this, 'handle_tpl_metaheader_output');
         $controller->register_hook('AJAX_CALL_UNKNOWN', 'BEFORE', $this, 'handle_ajax');
+        $controller->register_hook('TPL_CONTENT_DISPLAY', 'BEFORE', $this, 'handle_tpl_content_display');
     }
 
     public function handle_ajax(&$event, $param) {
@@ -127,6 +128,10 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
             'charset' => 'utf-8',
             'src' => $url,
         );
+    }
+
+    public function handle_tpl_content_display(Doku_Event &$event, $param) {
+      $event->data .= "<div id=\"mediaattachment\"></div>";
     }
 }
 

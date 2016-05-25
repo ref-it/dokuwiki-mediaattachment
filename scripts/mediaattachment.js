@@ -153,7 +153,8 @@ ma.initialize = function() {
   ma.lang = LANG.plugins.mediaattachment;
   ma.conf = mediaattachment_config;
   ma.ns = [ma.conf.id];
-  ma.elem = jQuery('<div/>').attr('id','mediaattachment').appendTo(jQuery('#bodyContent'));
+  //ma.elem = jQuery('<div/>').attr('id','mediaattachment').appendTo(jQuery('#bodyContent'));
+  ma.elem = jQuery('div#mediaattachment');
   jQuery('<h3/>').text(ma.lang.head).appendTo(ma.elem);
   var form = jQuery('<form/>').appendTo(ma.elem);
   form.append(jQuery('<span/>').text(ma.lang.upload));
