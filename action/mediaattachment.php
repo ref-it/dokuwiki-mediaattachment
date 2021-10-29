@@ -19,7 +19,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
 
     private $privatens = null;
 
-    public function register(Doku_Event_Handler &$controller) {
+    public function register(Doku_Event_Handler $controller) {
         $this->privatens = cleanID(trim($this->getConf('privatens')));
         $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this, 'handle_tpl_metaheader_output');
         $controller->register_hook('AJAX_CALL_UNKNOWN', 'BEFORE', $this, 'handle_ajax');
@@ -127,6 +127,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
             'type' => 'text/javascript',
             'charset' => 'utf-8',
             'src' => $url,
+            'defer' => true
         );
     }
 
