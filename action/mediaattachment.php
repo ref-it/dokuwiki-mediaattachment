@@ -34,15 +34,13 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
 
         $call = $event->data;
         if(method_exists($this, "handle_ajax_$call")) {
-           $json = new JSON();
-
            header('Content-Type: application/json');
            try {
              $ret = $this->{"handle_ajax_$call"}();
            } catch (Exception $e) {
              $ret = Array("file" => __FILE__, "line" => __LINE__, "error" => $e->getMessage(), "trace" => $e->getTraceAsString(), "url" => $this->ep_url);
            }
-           print $json->encode($ret);
+           print json_encode($ret);
            $event->preventDefault();
         }
     }
@@ -108,8 +106,7 @@ class action_plugin_mediaattachment_mediaattachment extends DokuWiki_Action_Plug
         );
         $path = 'scripts/mediaattachment.js';
 
-        $json = new JSON();
-        $this->include_script($event, 'var mediaattachment_config = '.$json->encode($config));
+        $this->include_script($event, 'var mediaattachment_config = '.json_encode($config));
         $this->link_script($event, DOKU_BASE.'lib/plugins/mediaattachment/'.$path);
 
     }
